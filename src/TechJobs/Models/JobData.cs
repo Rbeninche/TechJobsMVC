@@ -51,6 +51,11 @@ namespace TechJobs.Models
             // load data, if not already loaded
             LoadData();
 
+            if (string.IsNullOrEmpty(value))
+            {
+                return FindAll();
+            }
+
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> row in AllJobs)
@@ -67,6 +72,7 @@ namespace TechJobs.Models
                         // Finding one field in a job that matches is sufficient
                         break;
                     }
+
                 }
             }
 
